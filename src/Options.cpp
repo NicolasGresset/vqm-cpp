@@ -16,7 +16,7 @@ void Options::printUsage(const char *progName) const {
 }
 
 void Options::print() const {
-  std::cout << "Reference path : " << reference_path << "\n";
+  std::cout << "Reference path : " << original_path << "\n";
   std::cout << "Processed path : " << processed_path << "\n";
   std::cout << "Enable temporal calibration : "
             << (temporal_calibration ? "true" : "false") << "\n";
@@ -44,7 +44,7 @@ void Options::parseCLI(int argc, char **argv) {
         printUsage(argv[0]);
         std::exit(1);
       }
-      reference_path = tokens[++i];
+      original_path = tokens[++i];
     } else if (token == "-p" || token == "--processed") {
       if (i + 1 >= tokens.size()) {
         std::cerr << "Error: Missing value after " << token << "\n";
@@ -70,7 +70,7 @@ void Options::parseCLI(int argc, char **argv) {
     }
   }
 
-  if (reference_path.empty()) {
+  if (original_path.empty()) {
     std::cerr << "Error: Missing required flag -r / --reference\n";
     printUsage(argv[0]);
     std::exit(1);

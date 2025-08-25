@@ -10,6 +10,7 @@ set(SOURCES
     src/main.cpp
     src/VQM.cpp
     src/Options.cpp
+    src/FeatureExtractor.cpp
 )
 
 add_executable(main ${SOURCES})

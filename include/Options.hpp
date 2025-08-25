@@ -6,7 +6,7 @@
 
 class Options {
 public:
-  std::string reference_path;
+  std::string original_path;
   std::string processed_path;
   bool temporal_calibration = false;
   bool calibration = false;
